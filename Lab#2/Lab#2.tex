@@ -1,0 +1,210 @@
+%----------------------------------------------------------------------------------------
+% PACKAGES AND DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+  \documentclass[12pt]{article}
+
+  \usepackage{hyperref}
+  \usepackage{fancyhdr} % Required for custom headers
+  \usepackage{lastpage} % Required to determine the last page for the footer
+ 
+  \usepackage[usenames,dvipsnames]{color} % Required for custom colors
+  \usepackage{graphicx} % Required to insert images
+  \usepackage{listings} % Required for insertion of code
+  \usepackage{courier} % Required for the courier font
+  \usepackage{lipsum} % Used for inserting dummy 'Lorem ipsum' text into the template
+  \usepackage{wrapfig}
+  \usepackage{color}
+  \usepackage{lscape}
+  \usepackage{pbox}
+
+ \graphicspath{ {../Figures/} }% figures are taken from this folder
+ \setlength{\intextsep}{3ex} % set space above and below in-line float (figures, tables etc)
+\setlength{\floatsep}{2ex} % space between floats
+%\setlength{\abovecaptionskip}{1ex} % space above float caption
+%\setlength{\belowcaptionskip}{5ex} % space below float caption
+
+% numerotation for figures and tables
+\renewcommand{\thefigure}{\arabic{section}.\arabic{figure}}
+\renewcommand{\thetable}{\arabic{section}.\arabic{table}}
+
+
+  \setlength\parindent{0pt} % Removes all indentation from paragraphs
+  \renewcommand{\labelenumi}{\alph{enumi}.} % Make numbering in the itemize environment by letter rather than number (e.g. section 6)
+
+  % Margins
+  \topmargin=-0.4in
+  \evensidemargin=0.2in
+  \oddsidemargin=-0.2in
+  \textwidth=7.0in
+  \textheight=9.0in
+  % \headsep=0.25in
+
+  % \linespread{1.1} % Line spacing
+
+  \definecolor{dkgreen}{rgb}{0,0.6,0}
+  \definecolor{gray}{rgb}{0.5,0.5,0.5}
+  \definecolor{mauve}{rgb}{0.58,0,0.82}
+  \definecolor{greyish}{rgb}{0.96,0.96,0.96}
+
+  \lstset{
+    backgroundcolor=\color{greyish},   % choose the background color; you must add \usepackage{color} or \usepackage{xcolor}
+    frame=tblr,
+    numbers=left,                       % where to put the line-numbers; possible values are (none, left, right)
+    numbersep=5pt,                   % how far the line-numbers are from the code
+    numberstyle=\tiny\color{mygray}, % the style that is used for the line-numbers
+    language=Ruby,
+    aboveskip=3mm,
+    belowskip=3mm,
+    showstringspaces=false,
+    columns=flexible,
+    basicstyle={\footnotesize\ttfamily},
+    numbers=none,
+    numberstyle=\tiny\color{gray},
+    keywordstyle=\color{blue},
+    commentstyle=\color{dkgreen},
+    stringstyle=\color{mauve},
+    breaklines=true,
+    breakatwhitespace=true
+    tabsize=1
+  }
+
+  \begin{document}
+  \begin{titlepage}
+
+%----------------------------------------------------------------------------------------
+% TITLE PAGE INFORMATION
+%----------------------------------------------------------------------------------------
+ \newcommand{\HRule}{\rule{\linewidth}{0.5mm}} % Defines a new command for the horizontal lines, change thickness here
+  \begin{center} % Center everything on the page
+
+  %----------------------------------------------------------------------------------------
+  % HEADING SECTIONS
+  %----------------------------------------------------------------------------------------
+  \textsc{\large Faculty of Computers, Informatics and Microelectronics}\\[0.5cm]
+  \textsc{\large Technical University of Moldova}\\[1.2cm] % Name of your university/college
+  \vspace{35 mm}
+  \textsc{\Large Windows Programming}\\[0.5cm] % Major heading such as course name
+  %\textsc{\large Laboratory work \#1-3}\\[0.5cm] % Minor heading such as course title
+  \textsc{\large Laboratory work \# 2}\\[0.5cm] % Minor heading such as course title
+
+  %----------------------------------------------------------------------------------------
+  % TITLE SECTION
+  %----------------------------------------------------------------------------------------
+  \vspace{10 mm}
+  \HRule \\[0.4cm]
+  { \LARGE \bfseries 
+Advanced Form Elements. Child Windowses. }\\[0.4cm] % Title of your document
+  \HRule \\[1.5cm]
+
+  %----------------------------------------------------------------------------------------
+  % AUTHOR SECTION
+  %----------------------------------------------------------------------------------------
+      \vspace{30mm}
+
+      \begin{minipage}{0.4\textwidth}
+      \begin{flushleft} \large
+      \emph{Authors:}\\
+      Vlas \textsc{Mihai}
+      \end{flushleft}
+      \end{minipage}
+      ~
+      \begin{minipage}{0.4\textwidth}
+      \begin{flushright} \large
+      \emph{Supervisor:} \\
+      Irina \textsc{Cojanu} % Supervisor's Name
+      \end{flushright}
+      \end{minipage}\\[4cm]
+
+      \vspace{5 mm}
+      % If you don't want a supervisor, uncomment the two lines below and remove the section above
+      %\Large \emph{Author:}\\
+      %John \textsc{Smith}\\[3cm] % Your name
+
+      %----------------------------------------------------------------------------------------
+      % DATE SECTION
+      %----------------------------------------------------------------------------------------
+
+      {\large \today}\\[3cm] % Date, change the \today to a set date if you want to be precise
+
+      %----------------------------------------------------------------------------------------
+      % LOGO SECTION
+      %----------------------------------------------------------------------------------------
+
+      %\includegraphics{Logo}\\[1cm] % Include a department/university logo - this will require the graphicx package
+
+      %----------------------------------------------------------------------------------------
+
+      \vfill % Fill the rest of the page with whitespace
+      \end{center}
+      \end{titlepage}
+
+      % \newpage
+      % \tableofcontents
+      % \newpage
+
+%----------------------------------------------------------------------------------------
+% Introduction
+%----------------------------------------------------------------------------------------
+
+  \section{Introduction}
+
+  \subsection{Topic}
+
+  
+Advanced Form Elements. Child Windowses. Basics of Working With Keyboard.
+
+  \subsection{Task}
+
+  \begin{itemize}
+    \renewcommand{\labelitemi}{$\circ$}
+    \item Create a Windows application what will dispaly a dialog box on some event (ex. on clicking some button)
+\item Add a system menu to your application with at least 3 items (add actions to that items)
+Hook keyboard input. 
+\item Add 2 custom events for 2 different keyboard combinations (ex. change window background on ctrl+space)
+\item Add a scroll bar that will change any visible parameter of any other element (color of a text) OR other 2 scroll bars that will manage main window size or position
+\item Customize your application by adding an icon and using different cursor in application
+\item Add a listbox and attach some events when any element is accessed (clicked)
+  \end{itemize}
+
+%----------------------------------------------------------------------------------------
+% Implementation
+%----------------------------------------------------------------------------------------
+
+  \section{Results}
+
+
+
+
+\begin{minipage}[b]{1.0\linewidth}
+      \begin{center}
+        \includegraphics[width=0.9\textwidth]{Screen1}
+         \\ Fig. 1 Basic Window
+      \end{center}
+    \end{minipage}
+
+    \begin{minipage}[b]{1.0\linewidth}
+      \begin{center}
+        \includegraphics[width=0.9\textwidth]{Screen2}
+         \\ Fig. 2 Adding Candidates
+      \end{center}
+    \end{minipage}
+    \begin{minipage}[b]{1.0\linewidth}
+      \begin{center}
+        \includegraphics[width=0.9\textwidth]{Screen3}
+         \\ Fig. 3 Adding more candidates
+      \end{center}
+    \end{minipage}
+    
+        \begin{minipage}[b]{1.0\linewidth}
+      \begin{center}
+        \includegraphics[width=0.9\textwidth]{Screen4}
+         \\ Fig.4 Removing two of them
+      \end{center}
+    \end{minipage}
+\section{Conclusion}
+
+\textbf{For this laboratory work we made our basic window program with few buttons that apply to different fucntions for manipulating with the input from the keyboard. As you can see in the screenshots, there are several buttons that allows us to make different changes in our window, for font : "Times, Courier,Calibri", for Display and erase of some text and others. This code is made by Mihai Vlas but took a bit part from his colegues because of lack of time in this semester. He feels very sorry and will improve his attitude just like his grades in the 3rd year. No more volunteering, just writing code.}
+
+  
+\end{document}
