@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1463602353 source:c:\users\vlas daniel\desktop\Новая папка (2)\lab1\main.cpp
+	<tchar.h>
+	<windows.h>
+	<stdio.h>
+
