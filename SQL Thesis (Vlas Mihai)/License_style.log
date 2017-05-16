@@ -1,0 +1,14 @@
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdftex 2014.11.20)  28 MAY 2015 15:03
+entering extended mode
+**H:/Thesis*TEX/License_style.sty
+("H:/Thesis TEX/License_style.sty"
+! Undefined control sequence.
+l.1 \ProvidesPackage
+                    {License_style}
+? 
+! Emergency stop.
+l.1 \ProvidesPackage
+                    {License_style}
+End of file on the terminal!
+
+!  ==> Fatal error occurred, no output PDF file produced!
