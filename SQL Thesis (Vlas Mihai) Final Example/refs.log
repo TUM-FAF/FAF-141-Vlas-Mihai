@@ -1,0 +1,22 @@
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdftex 2014.11.20)  23 JAN 2015 01:37
+entering extended mode
+**D:/an*IV/STLE/HW1/refs.bib
+("D:/an IV/STLE/HW1/refs.bib"
+! Missing $ inserted.
+<inserted text> 
+                $
+<to be read again> 
+                   _
+l.1 @inproceedings{ref_
+                       1,
+? 
+! Emergency stop.
+<inserted text> 
+                $
+<to be read again> 
+                   _
+l.1 @inproceedings{ref_
+                       1,
+End of file on the terminal!
+
+!  ==> Fatal error occurred, no output PDF file produced!

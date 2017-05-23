@@ -1,0 +1,108 @@
+\section{Views in SQL}
+\phantomsection
+
+In SQL, a view is a virtual table based on the result-set of an SQL statement.
+A view contains rows and columns, just like a real table. The fields in a view are fields from one or more real tables in the database.
+You can add SQL functions, WHERE, and JOIN statements to a view and present the data as if the data were coming from one single table.
+A view can contain all rows of a table or select rows from a table. A view can be created from one or many tables which depends on the written SQL query to create a view.\\
+Views, which are a type of virtual tables allow users to do the following:\\
+•	Structure data in a way that users or classes of users find natural or intuitive.\\
+•	Restrict access to the data in such a way that a user can see and (sometimes) modify exactly what they need and no more.\\
+•	Summarize data from various tables which can be used to generate reports.\\
+\\
+Besides the standard role of basic user-defined views, SQL Server provides the following types of views that serve special purposes in a database:\\
+{\large • Indexed Views:}
+An indexed view is a view that has been materialized. This means the view definition has been computed and the resulting data stored just like a table. You index a view by creating a unique clustered index on it. Indexed views can dramatically improve the performance of some types of queries. Indexed views work best for queries that aggregate many rows. They are not well-suited for underlying data sets that are frequently updated.\\
+{\large • Partitioned Views:}
+A partitioned view joins horizontally partitioned data from a set of member tables across one or more servers. This makes the data appear as if from one table. A view that joins member tables on the same instance of SQL Server is a local partitioned view.\\
+\\
+{\large • System Views:}
+System views expose catalog metadata. You can use system views to return information about the instance of SQL Server or the objects defined in the instance. For example, you can query the sys.databases catalog view to return information about the user-defined databases available in the instance.\\
+\\
+\clearpage
+There are several actions that we can do with views in SQL:\\
+1) \textbf{Create View}\\
+2) \textbf{Update View}\\
+3) \textbf{Delete View}\\
+
+First of all let's analyze how the views are created and what kind of syntax we need for it.\\
+Database views are created using the CREATE VIEW statement. Views can be created from a single table, multiple tables or another view.
+
+To create a view, a user must have the appropriate system privilege according to the specific implementation.\\
+
+\lstinputlisting[style=mystyle, language=SQL, caption={Views creating statements},]{sourcecode/Create_View.sql}
+
+Let's take an example of creating a view from a table:\\
+\begin{table}[ht!]
+\centering
+\caption{Customers}
+\label{my-label}
+\begin{tabular}{lllll}
+ID & NAME   & AGE & ADDRESS  & SALARY \\
+1  & ION    & 25  & Chisinau & 3000   \\
+2  & Victor & 30  & Orhei    & 2000   \\
+3  & Mihai  & 20  & Balti    & 4000  
+\end{tabular}
+\end{table}
+Now let's create the view that will have only Customer's name and age:\\
+\lstinputlisting[style=mystyle, language=SQL, caption={Creating view from a table},]{sourcecode/Create_example.sql}
+The result will be the following:\\
+\begin{table}[ht!]
+\centering
+\caption{CustomersView}
+\begin{tabular}{lllll}
+NAME   & AGE &  &  &  \\
+ION    & 25  &  &  &  \\
+Victor & 30  &  &  &  \\
+Mihai  & 20  &  &  & 
+\end{tabular}
+\end{table}
+\clearpage
+
+Next option for Views let's analyze the updating action.\\
+First of all to update a view we need to acomplish several conditions, which are:\\
+• The SELECT clause may not contain the keyword DISTINCT.\\
+• The SELECT clause may not contain summary functions.\\
+• The SELECT clause may not contain set functions.\\
+• The SELECT clause may not contain set operators.\\
+• The SELECT clause may not contain an ORDER BY clause.\\
+• The FROM clause may not contain multiple tables.\\
+• The WHERE clause may not contain subqueries.\\
+• The query may not contain GROUP BY or HAVING.\\
+• Calculated columns may not be updated.\\
+• All NOT NULL columns from the base table must be included in the view in order for the INSERT query to function.\\
+
+So, if a view satisfies all the above-mentioned rules then it can be updated. The following listing has an example to update the age of Victor.\\
+\lstinputlisting[style=mystyle, language=SQL, caption={Updating a View },]{sourcecode/View_update.sql}
+\begin{table}[ht!]
+\centering
+\caption{UpdatedView}
+\begin{tabular}{lllll}
+NAME   & AGE &  &  &  \\
+ION    & 25  &  &  &  \\
+Victor & 35  &  &  &  \\
+Mihai  & 20  &  &  & 
+\end{tabular}
+\end{table}
+
+The last operation is Deleting a View, which we can perform by dropping it if it's no longer needed.\\
+\lstinputlisting[style=mystyle, language=SQL, caption={Drop View},]{sourcecode/Drop_view.sql}
+For our example, the sequence will be:\\
+\lstinputlisting[style=mystyle, language=SQL, caption={Drop CustomerView},]{sourcecode/Drop_customer_view.sql}
+\clearpage
+Treating Views as simple tables allows us to insert new rows and delete some specific rows or columns from the view. This can be done with INSERT/DELETE command.\\
+\lstinputlisting[style=mystyle, language=SQL, caption={Drop CustomerView},]{sourcecode/Delete_row.sql}
+\textbf{Note!:} For INSERT Command, are applied the same rules as for UPDATE command.\\
+Let's delete a row which has recorded the age=20.
+\begin{table}[ht!]
+\centering
+\caption{UpdatedView}
+\begin{tabular}{lllll}
+NAME   & AGE &  &  &  \\
+ION    & 25  &  &  &  \\
+Victor & 35  &  &  &  
+\end{tabular}
+\end{table}
+
+
+\clearpage

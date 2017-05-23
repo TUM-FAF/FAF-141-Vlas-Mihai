@@ -1,0 +1,3 @@
+SQL > UPDATE CUSTOMERS_VIEW
+   SET AGE = 35
+   WHERE name = 'Victor';

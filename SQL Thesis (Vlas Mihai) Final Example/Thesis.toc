@@ -1,0 +1,11 @@
+\select@language {english}
+\select@language {romanian}
+\select@language {english}
+\select@language {english}
+\thispagestyle {empty}
+\contentsline {section}{Introduction}{4}
+\contentsline {section}{\numberline {1}Views in SQL}{5}
+\contentsline {section}{\numberline {2}Views in Oracle 12c}{9}
+\contentsline {section}{\numberline {3}Practical part}{12}
+\contentsline {section}{Conclusions}{17}
+\contentsline {section}{References}{18}
